@@ -18,7 +18,7 @@ const firebaseConfig = {
 }
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig)
+firebase.initializeApp(firebaseConfig)
 
 //init firestore
 const manageproDb = firebase.firestore()
