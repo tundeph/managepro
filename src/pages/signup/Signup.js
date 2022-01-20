@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { useSignup } from "../../hooks/useSignup"
 
 //styles
 import "./Signup.css"
@@ -9,11 +10,11 @@ const Signup = () => {
   const [displayName, setDisplayName] = useState("")
   const [thumbnail, setThumbnail] = useState(null)
   const [thumbnailError, setThumbnailError] = useState()
+  const { signup, isPending, error } = useSignup()
 
   const handleFileChange = (e) => {
     setThumbnail(null)
     let selected = e.target.files[0]
-    console.log(selected)
 
     if (!selected) {
       setThumbnailError("Please select a file")
@@ -33,12 +34,13 @@ const Signup = () => {
     setThumbnailError(null)
     setThumbnail(selected)
 
-    console.log("Thumbnail updated")
+    //console.log("Thumbnail updated")
   }
 
   const handleSubmit = (e) => {
     e.preventDefault()
-    console.log("all: ", email, password, displayName, thumbnail)
+    signup(email, password, displayName, thumbnail)
+    //console.log("all: ", email, password, displayName, thumbnail)
   }
 
   return (
@@ -80,7 +82,13 @@ const Signup = () => {
         {thumbnailError && <div className="error">{thumbnailError}</div>}
       </label>
 
-      <button className="btn">Sign up </button>
+      {!isPending && <button className="btn">Sign up </button>}
+      {isPending && (
+        <button className="btn" disabled>
+          Loading...
+        </button>
+      )}
+      {error && <div className="error">{error} </div>}
     </form>
   )
 }
