@@ -25,19 +25,24 @@ const Signup = () => {
       return
     }
 
-    if (selected.size > 100000) {
+    if (selected.size > 500000) {
       setThumbnailError("Large file: must be less than 100kb")
       return
     }
 
     setThumbnailError(null)
-    setThumbnailError(selected)
+    setThumbnail(selected)
 
     console.log("Thumbnail updated")
   }
 
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    console.log("all: ", email, password, displayName, thumbnail)
+  }
+
   return (
-    <form className="auth-form">
+    <form onSubmit={handleSubmit} className="auth-form">
       <h2> Sign up </h2>
       <label>
         <span>Email: </span>
