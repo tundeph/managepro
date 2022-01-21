@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react"
-import { projectAuth } from "../firebase/config"
+import { projectAuth, projectDb } from "../firebase/config"
 import { useAuthContext } from "./useAuthContext"
 
 export const useLogin = () => {
@@ -19,6 +19,12 @@ export const useLogin = () => {
       if (!res) {
         throw new Error("Error from firebase")
       }
+
+      //update online status to true
+      await projectDb.collection("users").doc(res.user.uid).update({
+        online: true,
+      })
+
       //dispatch login action
       dispatch({ type: "LOGIN", payload: res.user })
 
