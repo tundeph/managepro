@@ -13,6 +13,7 @@
 }
 .sidebar .user {
   font-weight: bold;
+  font-family: "Beatrice Bold", Poppins, sans-serif;
   text-align: center;
   letter-spacing: 1px;
   padding: 40px 30px;
@@ -44,4 +45,12 @@
 }
 .sidebar .links .active img {
   filter: invert(40%);
+}
+
+/* avatar in sidebar */
+.sidebar .user .avatar {
+  margin-bottom: 10px;
+  width: 70px;
+  height: 70px;
+  border: 8px solid #fff;
 }
