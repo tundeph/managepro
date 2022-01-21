@@ -1,9 +1,10 @@
 import firebase from "firebase"
 import "firebase/firestore"
 import "firebase/auth"
+import "firebase/storage"
 
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app"
+//import { initializeApp } from "firebase/app"
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -20,13 +21,12 @@ const firebaseConfig = {
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig)
 
-//init firestore
-const manageproDb = firebase.firestore()
-
-//init auth
-const manageproAuth = firebase.auth()
+//init firestore, auth, storage
+const projectDb = firebase.firestore()
+const projectAuth = firebase.auth()
+const projectStorage = firebase.storage()
 
 //timestamp
 const timestamp = firebase.firestore.Timestamp
 
-export { manageproDb, manageproAuth, timestamp }
+export { projectDb, projectAuth, projectStorage, timestamp }
