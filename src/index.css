@@ -16,9 +16,10 @@
 :root {
   --heading-color: #444;
   --text-color: #999;
-  --primary-color: #8d69f1;
+  --primary-color: #2178db;
   --highlight-color: #d13267;
   --bg-color: #f4f4f4;
+  --online-color: #0ebb50;
 }
 
 /* base styles */
@@ -110,4 +111,9 @@ input:focus,
 textarea:focus,
 select:focus {
   outline-color: var(--primary-color);
+}
+
+.logotext {
+  color: var(--primary-color);
+  font-size: 1.2em;
 }
