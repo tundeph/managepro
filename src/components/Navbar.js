@@ -4,7 +4,7 @@ import { useAuthContext } from "../hooks/useAuthContext"
 
 //styles and images
 import "./Navbar.css"
-import Temple from "../assets/img/temple.svg"
+import Temple from "../assets/img/logo.png"
 
 const Navbar = () => {
   const { logout, isPending } = useLogout()
@@ -16,7 +16,9 @@ const Navbar = () => {
         <li className="logo">
           <Link to="/">
             <img src={Temple} alt="MoneyPro Logo" />
-            <span className="logotext">ManagePro</span>
+            <span className="logotext">
+              Manage<span style={{ color: "var(--online-color)" }}>Pro</span>
+            </span>
           </Link>
         </li>
         {!user && (
