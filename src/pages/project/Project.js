@@ -1,5 +1,32 @@
+import { useParams } from "react-router-dom"
+import { useDocument } from "../../hooks/useDocument"
+
+//components
+import ProjectSummary from "./ProjectSummary"
+
+import ProjectComments from "./ProjectComments"
+
+//styles
+import "./Project.css"
+
 const Project = () => {
-  return <div> Projects </div>
+  const { id } = useParams()
+  const { document, error } = useDocument("projects", id)
+
+  if (error) {
+    return <div className="error">{error}</div>
+  }
+
+  if (!document) {
+    return <div className="loading"> Loading...</div>
+  }
+
+  return (
+    <div className="project-details">
+      <ProjectSummary project={document} />
+      <ProjectComments />
+    </div>
+  )
 }
 
 export default Project
