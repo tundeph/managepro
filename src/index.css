@@ -8,8 +8,7 @@
 
 @font-face {
   font-family: "Beatrice Bold";
-  src: local("Beatrice Bold"),
-    url("./fonts/Beatrice_Bold.ttf") format("truetype");
+  src: local("Beatrice Bold"), url("./fonts/Beatrice_Bold.ttf") format("truetype");
   font-weight: 800;
 }
 
@@ -36,6 +35,7 @@ h3,
 h4,
 .logotext {
   font-family: "Beatrice Bold", Poppins, sans-serif;
+  letter-spacing: -0.2px;
 }
 ul,
 li,
@@ -53,9 +53,10 @@ ul {
 
 /* layout */
 .page-title {
-  font-size: 0.9em;
+  font-size: 1em;
   color: var(--heading-color);
   display: inline-block;
+  letter-spacing: -0.2px;
 }
 .btn {
   background: #fff;
@@ -90,6 +91,7 @@ textarea {
   box-sizing: border-box;
   border: 1px solid #ddd;
   border-radius: 4px;
+  font-family: "Beatrice", sans-serif;
 }
 textarea {
   min-height: 160px;
@@ -104,6 +106,8 @@ textarea {
   font-size: 0.8em;
 }
 
-input:focus {
+input:focus,
+textarea:focus,
+select:focus {
   outline-color: var(--primary-color);
 }
