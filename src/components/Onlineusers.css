@@ -35,6 +35,7 @@
   background: #0ebb50;
   border-radius: 50%;
   margin-top: 2px;
+  margin-right: auto;
 }
 
 /* offline users */
@@ -46,4 +47,5 @@
   background: #d4d4d4;
   border-radius: 50%;
   margin-top: 2px;
+  margin-right: auto;
 }
