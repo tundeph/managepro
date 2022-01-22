@@ -3,7 +3,6 @@ import { useDocument } from "../../hooks/useDocument"
 
 //components
 import ProjectSummary from "./ProjectSummary"
-
 import ProjectComments from "./ProjectComments"
 
 //styles
