@@ -27,8 +27,12 @@ const ProjectComments = ({ project }) => {
     if (!response.error) {
       setNewComment("")
     }
-    // console.log(commentToAdd)
   }
+
+  let canComment = false
+  project.assignedUsersList.forEach(
+    (assignedUser) => assignedUser.id === user.uid && (canComment = true)
+  )
 
   return (
     <div className="project-comments">
@@ -48,17 +52,20 @@ const ProjectComments = ({ project }) => {
             </li>
           ))}
       </ul>
-      <form onSubmit={handleSubmit} className="add-comment">
-        <label>
-          <span>Add New Comment: </span>
-          <textarea
-            onChange={(e) => setNewComment(e.target.value)}
-            value={newComment}
-            required
-          ></textarea>
-        </label>
-        <button className="btn"> Add Comment </button>
-      </form>
+
+      {canComment && (
+        <form onSubmit={handleSubmit} className="add-comment">
+          <label>
+            <span>Add New Comment: </span>
+            <textarea
+              onChange={(e) => setNewComment(e.target.value)}
+              value={newComment}
+              required
+            ></textarea>
+          </label>
+          <button className="btn"> Add Comment </button>
+        </form>
+      )}
     </div>
   )
 }
