@@ -29,7 +29,7 @@
 /* online users */
 .user-list .online-user {
   display: inline-block;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   width: 12px;
   height: 12px;
   background: var(--online-color);
@@ -41,7 +41,7 @@
 /* offline users */
 .user-list .offline-user {
   display: inline-block;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   width: 12px;
   height: 12px;
   background: #d4d4d4;
