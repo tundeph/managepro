@@ -39,7 +39,7 @@ export const useCollection = (collection, _query, _orderResultsBy) => {
       }
     )
 
-    //unsubscribe on amount =  celan up function
+    //unsubscribe on unmount =  clean up function
     return () => unsubscribe()
   }, [collection, query, orderResultsBy])
 
