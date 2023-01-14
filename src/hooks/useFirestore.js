@@ -68,7 +68,7 @@ export const useFirestore = (collection) => {
       const addDocument = await ref.add({ ...doc, createdAt })
       dispatchIfNotCancelled({ type: "ADDED_DOCUMENT", payload: addDocument })
     } catch (err) {
-      dispatchIfNotCancelled({ type: "ERROR", pyload: err.message })
+      dispatchIfNotCancelled({ type: "ERROR", payload: err.message })
     }
   }
 
