@@ -28,7 +28,7 @@ const Create = () => {
   const { documents } = useCollection("users")
   const { user } = useAuthContext()
   const [users, setUsers] = useState([])
-  const [formError, setFormEror] = useState(null)
+  const [formError, setFormError] = useState(null)
   const { addDocument, response } = useFirestore("projects")
   const navigate = useNavigate()
 
@@ -44,15 +44,15 @@ const Create = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    setFormEror(null)
+    setFormError(null)
 
     if (!category) {
-      setFormEror("Please select a project category")
+      setFormError("Please select a project category")
       return
     }
 
     if (assignedUsers.length < 1) {
-      setFormEror("Please assign project to at least one user")
+      setFormError("Please assign project to at least one user")
       return
     }
 
@@ -68,7 +68,11 @@ const Create = () => {
       category: category.value,
       dueDate: timestamp.fromDate(new Date(dueDate)),
       comments: [],
-      createdBy: { displayName: user.displayName, photoURL: user.photoURL, id: user.uid },
+      createdBy: {
+        displayName: user.displayName,
+        photoURL: user.photoURL,
+        id: user.uid,
+      },
       assignedUsersList,
     }
 
@@ -87,19 +91,9 @@ const Create = () => {
           <span>Project name: </span>
           <input type="text" onChange={(e) => setName(e.target.value)} value={name} required />
           <span>Project details: </span>
-          <textarea
-            type="text"
-            onChange={(e) => setDetails(e.target.value)}
-            value={details}
-            required
-          ></textarea>
+          <textarea type="text" onChange={(e) => setDetails(e.target.value)} value={details} required></textarea>
           <span>Set due date: </span>
-          <input
-            type="date"
-            onChange={(e) => setDueDate(e.target.value)}
-            value={dueDate}
-            required
-          />
+          <input type="date" onChange={(e) => setDueDate(e.target.value)} value={dueDate} required />
         </label>
         <label>
           <span>Project category:</span>
@@ -112,6 +106,7 @@ const Create = () => {
         {formError && <p className="error">{formError}</p>}
         <button className="btn">Add Project </button>
       </form>
+      div.ogo
     </div>
   )
 }
