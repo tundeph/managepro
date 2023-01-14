@@ -48,7 +48,12 @@ const Signup = () => {
       <h2> Sign Up </h2>
       <label>
         <span>Email: </span>
-        <input type="email" onChange={(e) => setEmail(e.target.value)} value={email} required />
+        <input
+          type="email"
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+          required
+        />
       </label>
 
       <label>
